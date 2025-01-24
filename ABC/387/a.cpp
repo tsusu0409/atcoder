@@ -13,3 +13,4 @@ int main() {
   ans = (A + B) * (A + B);
   cout << ans << endl;
 }
+
