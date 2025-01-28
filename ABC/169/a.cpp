@@ -7,4 +7,7 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
+  int A,B;
+  cin >> A >> B;
+  cout << A * B << endl;
 }

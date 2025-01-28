@@ -7,4 +7,12 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
+  int H, A;
+  cin >> H >> A;
+  int ans = 0;
+  while(H>0) {
+    ans ++;
+    H -= A;
+  }
+  cout << ans << endl;
 }
