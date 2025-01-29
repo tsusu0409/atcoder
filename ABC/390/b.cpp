@@ -9,7 +9,7 @@ using P = pair<int,int>;
 int main() {
     int N;
     cin >> N;
-    vector<int> A(N);
+    vector<ll> A(N);
     rep(i, N){
         cin >> A.at(i);
     }
