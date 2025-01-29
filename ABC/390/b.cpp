@@ -14,10 +14,10 @@ int main() {
         cin >> A.at(i);
     }
     int ans = 1;
-    double r = A.at(1) / A.at(0);
-    rep(i, N-1){  
-        double nowR = A.at(i+1) / A.at(i);
-        if(r != nowR){
+    rep(i, N-2){
+        ll p = A.at(i) * A.at(i+2);
+        ll q = A.at(i+1) * A.at(i+1);
+        if(p!=q){
             ans = 0;
             break;
         }
