@@ -7,24 +7,24 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
-  string S;
-  cin >> S;
-  int ans = 0;
-  int tmp = 0;
-  rep(i, S.size()) {
-    if(S.at(i) != '0') {
-      tmp = 0;
-      ans++;
+    vector<int> S(4);
+    rep(i, 4){
+        cin >> S.at(i);
     }
-    else {
-      if(tmp == 0) {
-        tmp = 1;
-        ans ++;
-      }
-      else {
-        tmp = 0;
-      }
+    sort(S.begin(), S.end());
+    int tmp = 0;
+    int count = 0;
+    rep(i, 4){
+        if(i == 0 || S.at(i) != tmp){
+            tmp = S.at(i);
+            count ++;
+        }
     }
-  }
-  cout << ans << endl;
+    
+    if(count == 2){
+        cout << "Yes" << endl;
+    }
+    else{
+        cout << "No" << endl;
+    }
 }
