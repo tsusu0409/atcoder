@@ -2,6 +2,8 @@
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "ostream": "cpp",
-        "all": "cpp"
+        "all": "cpp",
+        "chrono": "cpp",
+        "span": "cpp"
     }
 }
