@@ -7,7 +7,7 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
-    int N;
+    ll N;
     cin >> N;
     vector<ll> A(N);
     rep(i, N){
