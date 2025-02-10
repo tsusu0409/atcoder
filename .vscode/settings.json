@@ -4,6 +4,7 @@
         "ostream": "cpp",
         "all": "cpp",
         "chrono": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "iostream": "cpp"
     }
 }
