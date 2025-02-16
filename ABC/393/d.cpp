@@ -9,23 +9,26 @@ using P = pair<int,int>;
 int main() {
     int N; cin >> N;
     string S; cin >> S;
-    int sum = 0;
+    int n0 = 0;
     rep(i, N){
-        sum += S[i] - '0';
-    }
-
-    int maSum = 0;
-    rep(i, N-sum){
-        int count = 0;
-        rep(j, sum){
-            if(S[j] == '1'){
-                count ++;
-            }
+        if(S[i] == '0'){
+            n0 ++;
         }
-        maSum = max(count, maSum);
     }
+    int n1 = N - n0;
 
-    cout << sum - maSum << endl;
-
-    // 問題文誤読してた、そりゃ無理や
+    int ans = 0;
+    rep(i, N){
+        if(S[i] == '0'){
+            int l = 0;
+            rep(j, i+1){
+                if(S[j] == '1'){
+                    l ++;
+                }
+            }
+            int r = n1 - l;
+            ans += min(l, r);
+        }
+    }
+    cout << ans << endl;
 }
