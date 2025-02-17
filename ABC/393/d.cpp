@@ -17,17 +17,15 @@ int main() {
     }
     int n1 = N - n0;
 
-    int ans = 0;
+    int l = 0;
+    ll ans = 0;
     rep(i, N){
         if(S[i] == '0'){
-            int l = 0;
-            rep(j, i+1){
-                if(S[j] == '1'){
-                    l ++;
-                }
-            }
             int r = n1 - l;
             ans += min(l, r);
+        }
+        if(S[i] == '1'){
+            l ++;
         }
     }
     cout << ans << endl;
