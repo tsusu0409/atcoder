@@ -7,39 +7,36 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
-    int N, Q;
-    cin >> N >> Q;
-    vector<int> S(N);
+    int N, Q; cin >> N >> Q;
+
+    vector<int> data(N);
+    map<int, int> mp;
     rep(i, N){
-        S.at(i) = i;
+        data[i] = i;
+        mp[i] ++;
     }
+
+    int ans = 0;
     rep(i, Q){
-        int num, p, h;
-        cin >> num;
-        if(num == 1){
-            cin >> p >> h;
-            S.at(p-1) = h-1;
+        int q; cin >> q;
+        if(q == 1){
+            int P, H;
+            cin >> P >> H;
+            int b = mp[data[P-1]];
+            mp[data[P-1]] --;
+            if(b >= 2 && mp[data[P-1]] < 2){
+                ans --;
+            }
+
+            data[P-1] = H-1;
+            b = mp[data[P-1]];
+            mp[data[P-1]] ++;
+            if(b < 2 && mp[data[P-1]] >= 2){
+                ans ++;
+            }
         }
-        if(num == 2){
-            int cnt = 0;
-            vector<int> tmp(N);
-            rep(i, N){
-                tmp.at(i) = S.at(i);
-            }
-            sort(tmp.begin(), tmp.end());
-            int check = 0;
-            int done = -1;
-            rep(i, N){
-                if(tmp.at(i) != done){
-                    done = tmp.at(i);
-                    check = 0;
-                }
-                else if(check == 0){
-                    cnt ++;
-                    check = 1;
-                }
-            }
-            cout << cnt << endl;
+        else{
+            cout << ans << endl;
         }
     }
 }
