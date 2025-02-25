@@ -1,0 +1,31 @@
+name: Tweet on Commit
+
+on:
+  push:
+    branches:
+      - main  # mainブランチに push されたときに実行
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v3
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 依存パッケージをインストール
+        run: pip install tweepy
+
+      - name: コミットをツイート
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        run: |
+          python tweet.py "${{ github.event.head_commit.message }}" "${{ github.event.head_commit.url }}"
