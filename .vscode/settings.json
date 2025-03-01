@@ -5,6 +5,7 @@
         "all": "cpp",
         "chrono": "cpp",
         "span": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "d,cpp": "cpp"
     }
 }
