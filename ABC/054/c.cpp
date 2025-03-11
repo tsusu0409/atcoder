@@ -12,18 +12,51 @@ int main() {
     rep(i, M){
         int a, b;
         cin >> a >> b;
-        g[a-1].push_back(b-1);
-        g[b-1].push_back(a-1);
+        a--; b--;
+        g[a].push_back(b);
+        g[b].push_back(a);
     }
 
     int ans = 0;
-    int now = 0;
-    queue<int> que;
-    for(auto i: g[0]){
-        que.push(g[0][i]);
-    }
-    while(!que.empty){
+    
+    auto dfs = [&](auto dfs, int s, vector<bool> visited) -> void{
+        visited[s] = 1;
+        int v = 0;
+        for(auto i: visited){
+            if(i == 1){
+                v ++;
+            }
+        }
+        if(v == N){
+            ans ++;
+        }
+        else{
+            bool check = 0;
+            for(auto j: g[s]){
+                if(visited[j] == 0){
+                    check = 1;
+                }
+            }
+            if(!check){
+                return;
+            }
 
-    }
-    // わからんて
+            else{
+                for(auto j: g[s]){
+                    if(visited[j] == 1){
+                        continue;
+                    }
+                    else{
+                        dfs(dfs, j, visited);
+                    }
+                }
+            }
+        }
+    };
+
+    vector<bool> visited(N, 0);
+    visited[0] = 1;
+    dfs(dfs, 0, visited);
+
+    cout << ans << endl;
 }
