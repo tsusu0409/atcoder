@@ -6,6 +6,9 @@
         "chrono": "cpp",
         "span": "cpp",
         "iostream": "cpp",
-        "d,cpp": "cpp"
+        "d,cpp": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
     }
 }
