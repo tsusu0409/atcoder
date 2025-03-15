@@ -9,19 +9,30 @@ using P = pair<int,int>;
 int main() {
     int N; cin >> N;
     vector<int> A(N);
-    map<int, int> data = {};
     rep(i, N){
         cin >> A[i];
-        data[A[i]] ++;
     }
 
-    vector<int> S(N+1, 0);
+    vector<int> sumL(N);
+    vector<int> sumR(N);
+
+    map<int, int> numL = {};
+    map<int, int> numR = {};
+
     rep(i, N){
-        S[i+1] = S[i] + A[i];
+        numL[A[i]] ++;
+        sumL[i] = numL.size();
+    }
+    rep(i, N){
+        numR[A[N-1-i]] ++;
+        sumR[N-1-i] = numR.size();
     }
 
     int ans = 0;
     rep(i, N-1){
-        int x = S[]
+        int tmp = sumL[i] + sumR[i+1];
+        ans = max(ans, tmp);
     }
+
+    cout << ans << endl;
 }
