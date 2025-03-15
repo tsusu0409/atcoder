@@ -29,23 +29,11 @@ int main() {
         }
 
 
-        auto dfs = [&](auto dfs, vector<bool> visited, int s) -> void {
+        auto dfs = [&](auto dfs, vector<bool> &visited, int s) -> void {
             visited[s] = 1;
-            int check = 0;
-            for(auto i: g[s]){
-                if(i == 0){
-                    check = 1;
-                }
-            }
-            if(!check){
-                return;
-            }
         
             for(auto i: g[s]){
-                if(visited[i] == 1){
-                    continue;
-                }
-                else{
+                if(!visited[i]){
                     dfs(dfs, visited, i);
                 }
             }
