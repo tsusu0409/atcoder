@@ -14,7 +14,7 @@ int main() {
     }
     vector<double> exp(N, 0);
     rep(i, N){
-        exp[i] = p[i] / 2;
+        exp[i] = (1 + p[i]) / 2;
     }
     vector<double> s(N);
     rep(i, N){
