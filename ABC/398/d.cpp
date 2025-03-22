@@ -11,29 +11,36 @@ int main() {
     int R, C; cin >> R >> C;
     string S; cin >> S;
     
-    vector<map<char, int>> move(N);
-    rep(i, N){
-        int check = 0;
-        rep(j, i){
-            if(S[i] == 'N'){
-                move[j]['r'] --;
-            }
-            else if(S[i] == 'S'){
-                move[j]['r'] ++;
-            }
-            else if(S[i] == 'W'){
-                move[j]['c'] --;
-            }
-            else if(S[i] == 'N'){
-                move[j]['c'] ++;
-            }
+    set<P> smoke = {};
+    P t = {0, 0}; // 高橋くんの座標
+    P f = {-R, -C}; // fireの座標
 
-            if(move[j]['r'] == R && move[j]['c'] == C){
-                check = 1;
-                break;
-            }
+    smoke.insert(f);
+    rep(i, N){
+        if(S[i] == 'N'){
+            t.first ++;
+            f.first ++;
         }
-        cout << check;
+        else if(S[i] == 'S'){
+            t.first --;
+            f.first --;
+        }
+        else if(S[i] == 'E'){
+            t.second --;
+            f.second --;
+        }
+        else{
+            t.second ++;
+            f.second ++;
+        }
+        smoke.insert(f);
+
+        if(smoke.count({0, 0})){
+            cout << 1;
+        }
+        else{
+            cout << 0;
+        }
     }
     cout << endl;
 }
