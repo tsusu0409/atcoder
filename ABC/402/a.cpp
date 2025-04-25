@@ -5,5 +5,12 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
-    cout << "Hello World!" << endl;
+    string S; cin >> S;
+    int n = S.size();
+    rep(i, n){
+        if(S[i]>='A' && S[i]<='Z'){
+            cout << S[i];
+        }
+    }
+    cout << endl;
 }
