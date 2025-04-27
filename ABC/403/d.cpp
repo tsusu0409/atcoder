@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-#include <atcoder/all>
-using namespace atcoder;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using ll = long long;
 using P = pair<int,int>;
 
 vector<bool> seen;
-int dfs(const vector<vector<int> &G, int v){
+int dfs(const vector<vector<int>> &G, int v){
     seen[v] = 1;
     int size = 1;
     for(auto next_v: G[v]){
@@ -41,7 +39,7 @@ int main() {
 
     vector<int> sizeData = {};
     seen.assign(1e6+1, 0);
-    rep(i, 1e6+1){
+    for(auto i: A){
         if(!seen[i]){
             sizeData.push_back(dfs(G, i));
         }
