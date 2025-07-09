@@ -19,8 +19,16 @@ int main() {
     }
 
     for(int a=1; a<=maxA; a++){
-        ll maxB = N / pow(2, a);
-        sqrt(maxB);
+        ll b= 1;
+        ll calc = 1;
+        while(calc <= N){
+            calc = 1 * pow(2, a);
+            calc *= pow(b, 2);
+            if(calc<=N){
+                ans.insert(calc);
+                b++;
+            }
+        }
     }
     cout << ans.size() << endl;
 }
