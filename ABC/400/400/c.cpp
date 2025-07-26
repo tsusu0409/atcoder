@@ -7,24 +7,28 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
-    ll n; cin >> n;
+    ll N; cin >> N;
+    set<ll> ans;
 
-    ll bMax = sqrt(n) + 1;
-    set<ll> ansData;
+    int maxA = 0;
+    ll tmp = 1;
+    while(1){
+        tmp *= 2;
+        if(tmp<=N) maxA ++;
+        else break;
+    }
 
-    for(ll b = 1; b < bMax; b++){
-        ll b2 = b * b;
-        if(b2 > n){
-            break;
-        }
-        ll nowA = b2;
-        while(nowA <= n){
-            ansData.insert(nowA);
-            if(nowA <= (n / 2)){
-                nowA *= 2;
+    for(int a=1; a<=maxA; a++){
+        ll b= 1;
+        ll calc = 1;
+        while(calc <= N){
+            calc = 1 * pow(2, a);
+            calc *= pow(b, 2);
+            if(calc<=N){
+                ans.insert(calc);
+                b++;
             }
         }
-    } 
-
-    cout << ansData.size() << endl;
+    }
+    cout << ans.size() << endl;
 }
