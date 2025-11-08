@@ -4,7 +4,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "/usr/bin/g++",
+            "command": "/opt/homebrew/bin/g++-15",
             "args": [
                 "-std=gnu++17",
                 "-Wall",
