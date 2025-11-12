@@ -32,7 +32,7 @@ int main() {
         }
     }
 
-    int ans = 0;
+    ll ans = 0;
     rep(l, N){
         int left = l-1;
         int base = Asum[l-1];
