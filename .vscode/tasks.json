@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "/opt/homebrew/bin/g++-15",
             "args": [
-                "-std=gnu++17",
+                "-std=gnu++23",
                 "-Wall",
                 "-Wextra",
                 "-O2",
